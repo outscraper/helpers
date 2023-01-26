@@ -18,5 +18,7 @@ def create_place_os_id(name: str, coordinates: list) -> str:
         if longitude and latitude:
             longitude = truncate(longitude, 3)
             latitude = truncate(latitude, 3)
+        else:
+            longitude, latitude = '', ''
 
     return hashlib.md5(f'{name}/{longitude}/{latitude}'.encode()).hexdigest()
